@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Question and Answer Container</title>
+	<style>
+		body {
+			background-color: #f2f2f2;
+		}
+
+		.container {
+			width: 40%;
+			max-width: 400px;
+			margin: 50px auto;
+			background-color: #c1b0ca94;
+			padding: 90px;
+			border-radius: 10px;
+			box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+		}
+		#Clue2 {
+  position: relative;
+}
+#timer {
+  position: absolute;
+  bottom: -2rem; /* adjust the value to your preference */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+
+		h2 {
+			font-size: 40px;
+			font-weight: bold;
+			color: hsl(0, 100%, 55%);
+			margin-bottom: 10px;
+		}
+
+		p{
+			font-style: italic;
+			font-weight: bold;
+			font-size: 25px;
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		label {
+			font-size: 20px;
+			font-weight: bold;
+			color: #333;
+			margin-top: 20px;
+		}
+
+		input[type="text"] {
+			padding: 10px;
+			margin-top: 5px;
+			border: none;
+			border-radius: 5px;
+			background-color: #f2f2f2;
+			width: 100%;
+			max-width: 500px;
+		}
+
+		input[type="submit"] {
+			margin-top: 20px;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			background-color: #4CAF50;
+			color: #fff;
+			font-size: 20px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+    }
+
+    button:hover {
+    background-color: #3e8e41;
+    }  
+
+		.bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			z-index: -1;
+			background-image: linear-gradient(45deg, #FF8C00, #FF0080, #FFD700, #008080);
+			background-size: 400% 400%;
+			animation: gradientBG 10s ease infinite;
+		}
+
+		@keyframes gradientBG {
+			0% {
+				background-position: 0% 50%;
+			}
+			50% {
+				background-position: 100% 50%;
+			}
+			100% {
+				background-position: 0% 50%;
+			}
+		}
+
+	</style>
+</head>
+<body onload="startTimer()">
+	<div class="bg"></div>
+	<div class="container">
+		<h2>Clue to enter into room two :</h2>
+		<p>"I’m light as a feather, yet even the strongest person can’t hold me for five minutes. What am I ?"</p>
+		<form method="POST">
+            {% csrf_token %}
+			<label for="answer">Your Answer:</label>
+			<input type="text" id="q2" name="q2">
+			<button onclick="checkAnswer('q2', 'Breath')"; 
+            window.location.href="{% url 'Clue3'%}">Submit</button>
+		</form>
+	</div>
+    <div id="Clue2">
+        <p><span id="timer"></span></p>
+        <p><span id="submit"></span></p>
+    </div>
+	<script>
+		function startTimer() {
+	  var seconds = 90; // Start with 90 seconds
+	  if (localStorage.getItem("timer")) {
+		seconds = 90 - parseInt(localStorage.getItem("timer"));
+	  }
+	  var interval = setInterval(function() {
+		seconds--;
+		document.getElementById("timer").innerHTML = "Timer: " + seconds + "s";
+		localStorage.setItem("timer", 90 - seconds);
+		if (seconds <= 0) {
+		  clearInterval(interval);
+		  alert("Time's up Soldier! Let's start the game one's more");
+		  window.location.href="{% url 'Escape'%}"
+		  localStorage.removeItem("timer");
+		}
+	  }, 1000);
+	}
+		</script>
+		</body>
+</html>

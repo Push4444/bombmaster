@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Page</title>
+  </head>
+  <body>
+    <style>
+        body {
+          background-image: url("https://cdn.wallpapersafari.com/1/68/S53QEw.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+.container {
+  width: 400px;
+  margin: 0 auto;
+  background-color: rgba(224, 0, 0, 0.827);
+  padding: 90px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgb(0, 0, 0);
+}
+
+h1 {
+  text-align: center;
+  color: #ff9900;
+  font-size: 40px;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.463);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f2f2f2;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+      </style>
+    <div class="container">
+      <h1>Join<br>Bomb Master Game</h1>
+      <form method="POST">
+        {% csrf_token %}
+        <div class="form-input">
+          <label for="username">Username</label>
+          <input type="text" id="rusername" name="rusername" placeholder="Enter your username" required>
+        </div>
+        <div class="form-input">
+          <label for="email">Email</label>
+          <input type="email" id="remail" name="remail" placeholder="Enter your email" required>
+        </div>
+        <div class="form-input">
+          <label for="password">Password</label>
+          <input type="password" id="rpassword1" name="rpassword1" placeholder="Enter your password" required>
+        </div>
+        <div class="form-input">
+          <label for="password">Password</label>
+          <input type="password" id="rpassword2" name="rpassword2" placeholder="Confirm password" required>
+        </div>
+        <button type="submit"><a href="{% url 'Login'%}">Register</a></button>
+      </form>
+    </div>
+  </body>
+</html>

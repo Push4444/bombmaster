@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bomb Blast</title>
+	<style>
+		body {
+			background: url('https://gifdb.com/images/high/funny-nuclear-explosion-homer-simpson-3384211yacectbct.gif');
+            
+			background-size: relative;
+		}
+        #losing-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+}
+
+#losing-text h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+#losing-text p {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.typing-animation::after {
+  content: "";
+  display: inline-block;
+  vertical-align: bottom;
+  animation: typing 3s steps(50, end) infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+button {
+  background-color: #a0d100;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #272c28;
+}
+
+		.container {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 400px;
+			height: 400px;
+			background-color: rgba(48, 45, 45, 0.8);
+			border-radius: 10px;
+			padding: 20px;
+			text-align: center;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+        <div id="losing-text">
+            <h1>BOOM!</h1>
+            <p class="typing-animation">You failed to diffuse the bomb in time. <br>The explosion has caused irreversible damage.<br><b>Game over.</b></p>
+            <button type="submit"><a href="{% url 'Escape'%}">Restart</a></button>
+          </div>
+          
+	</div>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bomb Game</title>
+  </head>
+  <style>
+    body {
+      background-image: url("https://images.alphacoders.com/552/552374.jpg");
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    }
+  
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 36px;
+  }
+  
+  p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  
+  .clue {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .clue h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .clue p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .answer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .answer input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: #f1f1f1;
+    margin-right: 10px;
+  }
+  
+  .answer button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .answer button:hover {
+    background-color: #3e8e41;
+  }
+.clue {
+  border: 2px solid black;
+  padding: 20px;
+  margin: 20px;
+  width: calc(50% - 40px);
+  float: left;
+  box-sizing: border-box;
+}
+
+.row {
+  clear: both;
+}
+
+@media screen and (max-width: 767px) {
+  .clue {
+    width: 100%;
+  }
+}
+.row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px 0;
+    }
+    
+    .clue {
+    width: 40%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    text-align: center;
+    }
+    
+    .clue h2 {
+    margin-top: 0;
+    }
+    
+    .clue p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    }
+    
+    .answer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    .answer input[type="text"] {
+    width: 60%;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+    }
+    
+    .answer button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    }
+    
+    .answer button:hover {
+    background-color: #3e8e41;
+    }  
+  </style>
+    
+    <h1>Bomb Master Game</h1>
+    <p>Save your Motherland ! Your mission is to solve the clues and diffuse the bomb.</p>
+  <form id="answer">
+    <div class="row">
+      <div class="clue">
+        <h2>Clue 1:</h2>
+        <p>What is the name of the explosive material commonly used in bombs?</p>
+        <div class="answer">
+          <input type="text" placeholder="Enter your answer here" id="q1">
+          <button onclick="checkAnswer('q1', 'TNT')">Submit</button>
+        </div>
+      </div>
+      <div class="clue">
+        <h2>Clue 2:</h2>
+        <p>What does TNT stand for?</p>
+        <div class="answer">
+          <input type="text" placeholder="Enter your answer here" id="q2">
+          <button onclick="checkAnswer('q2', 'trinitrotoluene')">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="clue">
+        <h2>Clue 3:</h2>
+        <p>What soft skill involves the ability to work effectively under pressure?</p>
+        <div class="answer">
+          <input type="text" placeholder="Enter your answer here" id="q3">
+          <button onclick="checkAnswer('q3', 'resilience')">Submit</button>
+        </div>
+      </div>
+      <div class="clue">
+        <h2>Clue 4:</h2>
+        <p>In a bomb diffusion scenario, what skill might a bomb technician need to demonstrate resilience?</p>
+        <div class="answer">
+          <input type="text" placeholder="Enter your answer here" id="q4">
+          <button onclick="checkAnswer('q4', 'calmness')">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="clue">
+        <h2>Clue 5:</h2>
+        <p>A bomb has six wires, three blue and three green. In order to defuse the bomb, the wires need to be cut in a specific order. If the first wire must be green and the last wire must be blue, how many different wire cutting sequences are possible?</p>
+        <div class="answer">
+          <input type="text" placeholder="Enter your answer here" id="q5">
+          <button onclick="checkAnswer('q5', '24')">Submit</button>
+        </div>
+      </div>
+      <div class="clue">
+        <h2>Clue 6:</h2>
+        <p>"If 3x + 4y = 72 and 2x - 5y = z, what is the value of x + y where z is a 2-digit number that is an answer present in the previous questions ?"</p>
+        <div class="answer">
+          <input type="text" placeholder="Enter your answer here" id="q6">
+          <button onclick="checkAnswer('q6', '19.2')"><a href="{% url 'End'%}">Submit</a></button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <p id="result"></p>
+  <script>
+		// Get the form element and all the questions
+		var form = document.getElementById("answer");
+		var q1 = form.elements["q1"];
+		var q2 = form.elements["q2"];
+		var q3 = form.elements["q3"];
+		var q4 = form.elements["q4"];
+    var q5 = form.elements["q5"];
+    var q6 = form.elements["q6"];
+		
+		// Disable the questions that can't be attempted yet
+		q3.disabled = true;
+		q4.disabled = true;
+    q5.disabled = true;
+    q6.disabled = true;
+
+		
+    q1.addEventListener("change", function(event) {
+			q2.disabled = false;
+		});// Add a change event listener to question 2 to enable question 3 when it is answered
+		q2.addEventListener("change", function(event) {
+			q3.disabled = false;
+		});
+
+		// Add a change event listener to question 3 to enable question 4 when it is answered
+		q3.addEventListener("change", function(event) {
+			q4.disabled = false;
+		});
+
+    q4.addEventListener("change", function(event) {
+			q5.disabled = false;
+		});
+
+    q5.addEventListener("change", function(event) {
+			q6.disabled = false;
+		});
+
+		// Add a submit event listener to the form
+		form.addEventListener("submit", function(event) {
+			event.preventDefault(); // Prevent the form from submitting
+			var q1Value = q1.value;
+			var q2Value = q2.value;
+			var q3Value = q3.value;
+			var q4Value = q4.value;
+      var q5Value = q5.value;
+      var q6Value = q6.value;
+      
+			if (q1Value.toLowerCase() == "tnt" && q2Value.toLowerCase() == "trinitrotoluene" && q3Value.toLowerCase() == "resilience" && q4Value.toLowerCase() == "calmness" && q5Value == 24 && q6Value == 19.2) {
+				document.getElementById("result").innerHTML = "Congratulations, all your answers are correct!";
+			} else {
+				document.getElementById("result").innerHTML = "Sorry, one or more of your answers is incorrect.";
+			}
+		});
+	</script>
+  </body>
+</html>

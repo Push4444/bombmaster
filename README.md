@@ -18,6 +18,7 @@ Through this game, the verbal or communicational and reasoning or problem-solvin
 
 
 Possible ways To solve the puzzle
+
 The First way is the simple way where the user is expected to give correct answers to all the questions and win the puzzle.
 
 The second way is where the user gets trapped in the first trap and reaches a dead end. The first trap is set in 3rd question

@@ -1,4 +1,4 @@
-#The Painting
+#Bomb Master
 This is a simple game called "Bomb Master" where the player must diffuse a bomb by decoding a series of clues. The game includes a timer function that counts down from a specified time and ends the game if the timer reaches zero. The player must solve each clue within the allotted time to progress to the next clue.
 
 #How to Play

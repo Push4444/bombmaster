@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Escape Room Game</title>
+    <link rel="stylesheet" href="clues.css ">
+  </head>
+  <body onload="startTimer()">
+    <h1>Escape Room Game</h1>
+    <p>Welcome to the Escape Room Game! Your mission is to solve the clues and escape the room.</p>
+    <div class="row">
+      <div class="clue">
+        <h2>Clue 1:</h2>
+        <p>What is your greatest strength?</p>
+        <div class="answer">
+          <input type="text" placeholder="Enter your answer here" id="q1">
+          <button onclick="checkAnswer('q1', 'strength')">Submit</button>
+        </div>
+      </div>
+      <div class="clue">
+        <h2>Clue 2:</h2>
+        <p>What is the name of the largest ocean?</p>
+        <div class="answer">
+          <input type="text" placeholder="Enter your answer here" id="q2">
+          <button onclick="checkAnswer('q2', 'pacific')">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="clue">
+        <h2>Clue 3:</h2>
+        <p>What is your greatest weakness?</p>
+        <div class="answer">
+          <input type="text" placeholder="Enter your answer here" id="q3">
+          <button onclick="checkAnswer('q3', 'weakness')">Submit</button>
+        </div>
+      </div>
+      <div class="clue">
+        <h2>Clue 4:</h2>
+        <p>What is the highest mountain in the world?</p>
+        <div class="answer">
+          <input type="text" placeholder="Enter your answer here" id="q4">
+          <button onclick="checkAnswer('q4', 'everest')">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="clue">
+        <h2>Clue 5:</h2>
+        <p>What is a skill you want to learn?</p>
+        <div class="answer">
+          <input type="text" placeholder="Enter your answer here" id="q5">
+          <button onclick="checkAnswer('q5', 'skill')">Submit</button>
+        </div>
+      </div>
+      <div class="clue">
+        <h2>Dead End:</h2>
+        <p>Sorry, this clue is a dead end. Please try again.</p>
+        <div class="answer">
+          <input type="text" placeholder="Enter your answer here" id="deadend">
+          <button onclick="checkAnswer('deadend', '')">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div id="timer">20:00</div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>
+            wertyu
+        </title>
+        <style>
+            label {
+  font-weight: bold;
+}
+
+input[type="text"] {
+  padding: 5px;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+p#message {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+        </style>
+    </head>
+    <body>
+        <script>
+            function validateCode() {
+  var code = document.getElementById("code").value;
+  var pattern = /^\d{6}$/; // regular expression to match 6-digit code
+  if (code.match(pattern)) {
+    document.getElementById("message").innerHTML = "Valid code!";
+  } else {
+    document.getElementById("message").innerHTML = "Invalid code. Please enter a 6-digit code.";
+  }
+}
+
+        </script>
+        <label for="code">Enter the 6-digit code:</label>
+<input type="text" id="code" name="code" maxlength="6">
+<button type="button" onclick="validateCode()">Validate</button>
+<p id="message"></p>
+
+    </body>
+</html>
